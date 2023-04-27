@@ -4,7 +4,12 @@ Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
 package cmd
 
 import (
+	"fmt"
+
+	"github.com/priyanshu-lanjewar/2dol/pkg/common"
+	"github.com/priyanshu-lanjewar/2dol/pkg/create"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // createCmd represents the create command
@@ -14,20 +19,15 @@ var createCmd = &cobra.Command{
 	Aliases: []string{"c","C"},
 	
 	Run: func(cmd *cobra.Command, args []string) {
-		
+		viper.BindPFlags(cmd.Flags())
+		common.ListName = viper.GetString("name")
+		fmt.Println(common.ListName)
+		create.Execute()
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(createCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// createCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// createCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	createCmd.Flags().String("name", "", "Name of TO DO List")
+	createCmd.MarkFlagRequired("name")
 }

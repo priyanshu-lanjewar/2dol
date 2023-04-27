@@ -17,6 +17,12 @@ var UserToDoListConfigPath string
 
 var UserToDoListConfigFile *os.File
 
+var ListName string
+
+var ListFilePath string
+
+var ListFile *os.File
+
 var Error error
 
 var Log log.Logger
