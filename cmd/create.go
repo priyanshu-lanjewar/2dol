@@ -4,8 +4,6 @@ Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/priyanshu-lanjewar/2dol/pkg/common"
 	"github.com/priyanshu-lanjewar/2dol/pkg/create"
 	"github.com/spf13/cobra"
@@ -21,7 +19,6 @@ var createCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		viper.BindPFlags(cmd.Flags())
 		common.ListName = viper.GetString("name")
-		fmt.Println(common.ListName)
 		create.Execute()
 	},
 }
