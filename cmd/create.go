@@ -18,13 +18,11 @@ var createCmd = &cobra.Command{
 	
 	Run: func(cmd *cobra.Command, args []string) {
 		viper.BindPFlags(cmd.Flags())
-		common.ListName = viper.GetString("name")
+		common.ListName = args[0]
 		create.Execute()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(createCmd)
-	createCmd.Flags().String("name", "", "Name of TO DO List")
-	createCmd.MarkFlagRequired("name")
+	
 }

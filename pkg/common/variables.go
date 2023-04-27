@@ -23,6 +23,8 @@ var ListFilePath string
 
 var ListFile *os.File
 
+var IsListSelected bool
+
 var Error error
 
 var Log log.Logger

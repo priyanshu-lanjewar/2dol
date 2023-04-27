@@ -4,8 +4,7 @@ Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
 package cmd
 
 import (
-	"fmt"
-
+	selects "github.com/priyanshu-lanjewar/2dol/pkg/select"
 	"github.com/spf13/cobra"
 )
 
@@ -15,12 +14,12 @@ var selectCmd = &cobra.Command{
 	Short: "Select Particular list to work on",
 	Aliases: []string{"s","S"},
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("select called")
+		selects.Execute()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(selectCmd)
+	
 
 	// Here you will define your flags and configuration settings.
 

@@ -5,6 +5,7 @@ package cmd
 
 import (
 	"os"
+	"strings"
 
 	"github.com/priyanshu-lanjewar/2dol/pkg/common"
 	"github.com/spf13/cobra"
@@ -25,6 +26,15 @@ func Execute() {
 }
 
 func init() {
+	common.Init()
+	if strings.Split(common.ReadConf(),",")[1] == ""{
+		rootCmd.AddCommand(selectCmd)
+		rootCmd.AddCommand(purgeCmd)
+		rootCmd.AddCommand(displayCmd)
+		rootCmd.AddCommand(createCmd)
+	} else {
+		
+	}
  rootCmd.CompletionOptions.DisableDefaultCmd = true
 
 
