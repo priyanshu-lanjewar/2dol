@@ -4,8 +4,6 @@ Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +14,7 @@ var createCmd = &cobra.Command{
 	Aliases: []string{"c","C"},
 	
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("create called")
+		
 	},
 }
 

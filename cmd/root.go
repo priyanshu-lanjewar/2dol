@@ -6,6 +6,7 @@ package cmd
 import (
 	"os"
 
+	"github.com/priyanshu-lanjewar/2dol/pkg/common"
 	"github.com/spf13/cobra"
 )
 
@@ -13,16 +14,10 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "2dol",
 	Short: "To do list Commandline App",
-	
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	
+	common.Init()
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
