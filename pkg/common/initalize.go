@@ -1,3 +1,6 @@
+/*
+Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
+*/
 package common
 
 import (
