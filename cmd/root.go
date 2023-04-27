@@ -33,7 +33,12 @@ func init() {
 		rootCmd.AddCommand(displayCmd)
 		rootCmd.AddCommand(createCmd)
 	} else {
-		
+		rootCmd.AddCommand(backCmd)
+		rootCmd.AddCommand(delistCmd)
+		rootCmd.AddCommand(enlistCmd)
+		rootCmd.AddCommand(markCmd)
+		rootCmd.AddCommand(showCmd)
+		rootCmd.AddCommand(unmarkCmd)
 	}
  rootCmd.CompletionOptions.DisableDefaultCmd = true
 

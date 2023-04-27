@@ -1,6 +1,7 @@
 package selects
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -45,5 +46,6 @@ func Execute() {
 		common.LogErr(common.Error)
 		common.UpdateConfListName(response.List)
 		common.IsListSelected = true
+		common.LogMsg(fmt.Sprintf("Selected List : %s",response.List))
 	}
 }

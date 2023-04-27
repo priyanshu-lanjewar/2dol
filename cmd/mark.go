@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 PRIYANSHU LANJEWAR @ PRIYANSHU.LANJEWAR@YAHOO.COM
-
 */
 package cmd
 
@@ -26,7 +25,7 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(markCmd)
+	
 
 	// Here you will define your flags and configuration settings.
 
