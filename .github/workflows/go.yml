@@ -15,13 +15,13 @@ jobs:
       run: |
         set GOOS=windows 
         set GOARCH=amd64 
-        go build -o myapp.exe
+        go build -o 2dol.exe
         go test ./...
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: myapp-windows-amd64
-        path: myapp.exe
+        name: 2dol-windows-amd64
+        path: 2dol.exe
 
   build_linux:
     runs-on: ubuntu-latest
@@ -33,13 +33,13 @@ jobs:
         go-version: 1.19
     - name: Build and Test
       run: |
-        go build -o myapp
+        go build -o 2dol
         go test ./...
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: myapp-linux-amd64
-        path: myapp
+        name: 2dol-linux-amd64
+        path: 2dol
 
   build_macos:
     runs-on: ubuntu-latest
@@ -52,10 +52,10 @@ jobs:
     - name: Build and Test
       run: |
         GOOS=darwin GOARCH=amd64
-        go build -o myapp
+        go build -o 2dol
         go test ./...
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: myapp-linux-macos
-        path: myapp
+        name: 2dol-linux-macos
+        path: 2dol
