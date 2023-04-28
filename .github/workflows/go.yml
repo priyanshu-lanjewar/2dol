@@ -14,15 +14,15 @@ jobs:
       with:
         go-version: 1.19
     - name: Build
-      run: |
+      run:|
       set GOOS=windows 
       set GOARCH=amd64 
-      go build -o myapp.exe
+      go build -o 2dol.exe
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: myapp.exe
-        path: myapp.exe
+        name: 2dol.exe
+        path: 2dol.exe
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -32,7 +32,7 @@ jobs:
         tag_name: v1.0.0
         release_name: Release v1.0.0
         body: |
-          This is the first release of myapp.
+          This is the first release of 2dol.
           It includes the following changes:
           - Feature 1
           - Feature 2
@@ -44,6 +44,6 @@ jobs:
         GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./myapp.exe
-        asset_name: myapp.exe
+        asset_path: ./2dol.exe
+        asset_name: 2dol.exe
         asset_content_type: application/octet-stream
