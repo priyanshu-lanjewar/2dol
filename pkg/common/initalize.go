@@ -6,6 +6,7 @@ package common
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/apex/log"
 	"github.com/apex/log/handlers/cli"
@@ -36,4 +37,8 @@ func Init() {
 		UserToDoListConfigFile, Error = os.OpenFile(UserToDoListConfigPath,os.O_RDWR,0777)
 		UserToDoListConfigFile.Close()
 	}
+	
+	ListName = strings.Split(ReadConf(), ",")[1]
+	ListFilePath = fmt.Sprintf("%s/.%s",UserToDoListDirectoryPath, ListName)
+
 }

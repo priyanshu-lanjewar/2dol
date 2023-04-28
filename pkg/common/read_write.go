@@ -20,6 +20,37 @@ func ReadConf() string {
 	return string(decodedMsg)
 }
 
+func CleanSlice(Slice []string) []string {
+	var CleanedSlice []string
+	for _, Element := range Slice {
+		if Element != "" {
+			CleanedSlice = append(CleanedSlice, Element)
+		}
+	}
+	return CleanedSlice
+}
+
+func ReadList() Tasks {
+	Data, Error := ioutil.ReadFile(ListFilePath)
+	LogErr(Error)
+	DecodedData, Error := hex.DecodeString(string(Data))
+	LogErr(Error)
+	DalaList := strings.Split(string(DecodedData),"|")
+
+	return Tasks{
+		ToBeDone: CleanSlice(strings.Split(DalaList[0],",")),
+		Doing: CleanSlice(strings.Split(DalaList[1],",")),
+		Done:CleanSlice(strings.Split(DalaList[2],",")),
+	}
+}
+
+func WriteList(Tasks Tasks) {
+	Msg := []byte(strings.Join(Tasks.ToBeDone,",")+"|"+strings.Join(Tasks.Doing,",")+"|"+strings.Join(Tasks.Done,","))
+	encodedMsg := hex.EncodeToString(Msg)
+	Error = ioutil.WriteFile(ListFilePath,[]byte(encodedMsg),0644)
+	LogErr(Error)
+}
+
 func WriteConf(Message string) {
 	Msg := []byte(Message)
 	encodedMsg := hex.EncodeToString(Msg)

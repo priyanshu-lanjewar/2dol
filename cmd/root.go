@@ -38,12 +38,9 @@ func init() {
 		rootCmd.AddCommand(enlistCmd)
 		rootCmd.AddCommand(markCmd)
 		rootCmd.AddCommand(showCmd)
-		rootCmd.AddCommand(unmarkCmd)
 	}
  rootCmd.CompletionOptions.DisableDefaultCmd = true
-
-
-
+ 
 }
 
 

@@ -28,3 +28,8 @@ var IsListSelected bool
 var Error error
 
 var Log log.Logger
+type Tasks struct {
+	ToBeDone []string
+	Doing    []string
+	Done     []string
+}

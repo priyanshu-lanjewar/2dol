@@ -36,6 +36,7 @@ func Execute() {
 		common.IncConfCount()
 		common.UpdateConfListName(common.ListName)
 		common.LogMsg(fmt.Sprintf("Selected List %s.",common.ListName))
+		common.WriteList(common.Tasks{})
 	} else {
 		common.LogMsg("A List With Same Name Already Exists.")
 	}
